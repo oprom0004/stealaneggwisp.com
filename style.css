@@ -476,3 +476,111 @@ body {
   color: var(--primary-magic);
   letter-spacing: 1px;
 }
+
+/* Breadcrumbs */
+.breadcrumbs-nav {
+  padding: 0.75rem 0 0.5rem 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumbs-nav a {
+  color: var(--primary-magic);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumbs-nav a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs-nav .sep {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.breadcrumbs-nav .current {
+  color: var(--text-muted);
+}
+
+/* AI Direct Answer Quick Box */
+.geo-direct-answer {
+  background: rgba(129, 140, 248, 0.08);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.geo-direct-answer h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--primary-magic);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.geo-direct-answer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  color: var(--text-main);
+}
+
+.geo-direct-answer li strong {
+  color: #fff;
+}
+
+/* Related Guides Hub Grid */
+.hub-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.hub-card {
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hub-card:hover {
+  border-color: var(--primary-magic);
+  transform: translateY(-2px);
+}
+
+.hub-card h4 {
+  font-size: 1.05rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.hub-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.hub-card .hub-link-text {
+  font-size: 0.82rem;
+  color: var(--primary-magic);
+  font-weight: 700;
+  margin-top: auto;
+}
+

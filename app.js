@@ -1,14 +1,17 @@
 /**
- * Interactive Speed Calculator Engine for StealAnEggWisp.com
+ * Interactive Speed Calculator Engine & Instant Preloading for StealAnEggWisp.com
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Speed Calculator Logic (if present on page)
   const currentSpeedInput = document.getElementById('currentSpeedInput');
   const gainPerSecInput = document.getElementById('gainPerSecInput');
   const calcBtn = document.getElementById('calcBtn');
   const calcResult = document.getElementById('calcResult');
 
   function calculateTime() {
+    if (!currentSpeedInput || !gainPerSecInput || !calcResult) return;
+
     const currentSpeedB = parseFloat(currentSpeedInput.value) || 0;
     const gainPerSecM = parseFloat(gainPerSecInput.value) || 1;
     const targetSpeedB = 50.0;
@@ -47,4 +50,31 @@ document.addEventListener('DOMContentLoaded', () => {
     currentSpeedInput.addEventListener('input', calculateTime);
     gainPerSecInput.addEventListener('input', calculateTime);
   }
+
+  // Instant Hover Preloading for Internal Navigation
+  const preloadedUrls = new Set();
+  function preloadUrl(url) {
+    if (!url || preloadedUrls.has(url)) return;
+    try {
+      const parsed = new URL(url, window.location.href);
+      if (parsed.origin !== window.location.origin) return;
+      if (parsed.pathname === window.location.pathname) return;
+
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = parsed.href;
+      document.head.appendChild(link);
+      preloadedUrls.add(url);
+    } catch (e) {
+      // Ignore invalid URL
+    }
+  }
+
+  document.querySelectorAll('a[href]').forEach(anchor => {
+    const href = anchor.getAttribute('href');
+    if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('javascript:')) {
+      anchor.addEventListener('mouseenter', () => preloadUrl(href), { passive: true });
+      anchor.addEventListener('touchstart', () => preloadUrl(href), { passive: true });
+    }
+  });
 });

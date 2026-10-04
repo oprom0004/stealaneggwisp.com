@@ -219,7 +219,6 @@ body {
 .guide-callout-box {
   background: rgba(99, 102, 241, 0.08);
   border: 1px solid var(--border-color);
-  border-left: 4px solid var(--primary-magic);
   border-radius: 8px;
   padding: 1.5rem;
 }
